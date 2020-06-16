@@ -16,8 +16,8 @@ int main()
 {
 	while(1)
 	{
-		printf("Welcome to Ticket Booking/Cancellation E-Portal");
-		printf("The Services are\n1. BOOKING\n2. CANCELLATION\n3. CHECK STATUS\n4. EXIT\nEnter your choice\t");
+		printf("\nWelcome to Ticket Booking/Cancellation E-Portal");
+		printf("\nThe Services are\n1. BOOKING\n2. CANCELLATION\n3. CHECK STATUS\n4. EXIT\nEnter your choice\t");
 		scanf("%d",&choice);
 		switch(choice)
 		{
@@ -26,11 +26,11 @@ int main()
 				booking();
 				break;	
 			}	
-			/*case 2:
+			case 2:
 			{
 				cancellation();
 				break;
-			}
+			}/*
 			case 3:
 			{
 				status();
@@ -64,7 +64,8 @@ void booking()
 		{
 			strcpy(s[temp_seat].name,temp);
 			s[temp_seat].seat_no=1;
-			s[temp_seat].age=temp_age;		
+			s[temp_seat].age=temp_age;
+
 		}
 		else
 		{
@@ -72,6 +73,28 @@ void booking()
 			--i;		
 		}	
 	}
-		
+	printf("Your Ticket is successfully booked!");			
 }
-
+void cancellation()
+{
+	printf("Enter the name\t");
+	scanf("%s",temp);
+	printf("\nEnter the seat Number\t");
+	scanf("%d",&temp_seat);
+	if(!strcmp(s[temp_seat].name,temp))
+	{
+		if(s[temp_seat].seat_no==1)
+		{
+			s[temp_seat].seat_no=0;
+			printf("\nYour Ticket is cancelled !");
+		}
+		else
+		{
+			printf("\nPlease Enter the correct information");	
+		}
+	}
+	else
+	{
+		printf("\nPlease Enter the correct information\n");
+	}
+}
